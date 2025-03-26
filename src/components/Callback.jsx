@@ -2,6 +2,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 
+const API_URL = "https://backend-production-87c2.up.railway.app"; // Định nghĩa API_URL
+
 function Callback() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -10,23 +12,21 @@ function Callback() {
   useEffect(() => {
     if (!token) {
       console.error("Token is missing!");
-      navigate("/login", { replace: true }); // Quay về trang login nếu không có token
+      navigate("/login", { replace: true });
       return;
     }
 
     const authenticateUser = async () => {
       try {
-        const response = await axios.post("http://localhost:5000/auth/google", { token });
+        const response = await axios.post(`${API_URL}/api/something`, { token }); // Thay đổi URL
         console.log("User Info:", response.data);
 
-        // Lưu thông tin user vào localStorage (hoặc state management)
         localStorage.setItem("user", JSON.stringify(response.data));
 
-        // Chuyển hướng đến trang chính
         navigate("/home", { replace: true });
       } catch (error) {
         console.error("Authentication error:", error);
-        navigate("/login", { replace: true }); // Quay lại trang login nếu lỗi
+        navigate("/login", { replace: true });
       }
     };
 

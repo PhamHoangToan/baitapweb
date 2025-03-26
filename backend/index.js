@@ -1,7 +1,10 @@
+/* eslint-disable no-undef */
+// eslint-disable-next-line no-undef
 require('dotenv').config();
 const express = require('express');
 const { OAuth2Client } = require('google-auth-library');
 const cors = require('cors');
+// eslint-disable-next-line no-undef
 const { AccessToken } = require('livekit-server-sdk');
 
 const app = express();
