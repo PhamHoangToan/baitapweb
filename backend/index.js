@@ -8,7 +8,7 @@ const cors = require('cors');
 const { AccessToken } = require('livekit-server-sdk');
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ origin: 'https://nhom6chieuthu4.vercel.app' }));
 app.use(express.json());
 
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '971745314011-t9ndk0d6ur2gap1e3oc2kk434uhj9dmd.apps.googleusercontent.com';
